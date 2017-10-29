@@ -20,24 +20,19 @@ You can create a .p12 file for importing into a web browser with:
 
 VOMS
 ----
-To use GridPP DIRAC you need to be in vo.northgrid.ac.uk or skatelescope.eu 
-(for LHCb DIRAC, membership is via your membership of LHCb.)
+To use GridPP DIRAC you need to be in vo.northgrid.ac.uk (to use LHCb DIRAC,
+this should all be done routeinly as part of your membership of LHCb.)
 
 With your certificate and key loaded in your browser, or the macOS KeyStore
-for Safari and Chrome, you can request vo.northgrid.ac.uk or skatelescope.eu 
-VO membership from 
+for Safari and Chrome, you can request vo.northgrid.ac.uk VO membership from 
   https://voms.gridpp.ac.uk/ 
 (works from eduroam; may not be accessible from UoM_WIFI?)
 
-New members of those two VOs should be automatically added to GridPP DIRAC
-within a day (overnight?)
+New members of the VO should be automatically added to GridPP DIRAC within 
+a day (overnight?)
  
 GridPP DIRAC
 ------------
-
-For skatelescope.eu    (SKA development)
-    vo.northgrid.ac.uk (local Manchester users)
-    gridpp             (testing)
 
 Quick Guide:
  https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac
