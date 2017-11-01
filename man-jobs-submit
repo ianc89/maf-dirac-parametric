@@ -3,7 +3,7 @@
 # Template for submitting lots of jobs to GridPP DIRAC or LHCb DIRAC
 # Lots of inline comments. Please edit to suit your situation.
 #
-# This script uses DIRAC parametric jobs:
+e# This script uses DIRAC parametric jobs:
 #  https://github.com/DIRACGrid/DIRAC/wiki/JobManagementAdvanced
 
 import sys
@@ -22,21 +22,15 @@ jdl = ''
 jdl += 'JobName = "tarJob";\n'
 
 # One job will be created for each parameter in the list
-jdl += """Parameters = { "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/0.tar",
-                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/1.tar",
-                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/2.tar",
-                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/3.tar",
-                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/4.tar",
-                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/5.tar" };\n"""
+jdl += """Parameters = { "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/0.tar",
+                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/1.tar",
+                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/2.tar",
+                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/3.tar",
+                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/4.tar",
+                         "LFN:/vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/5.tar" };\n"""
 
-# Only run the jobs at Manchester
-jdl += 'Site = "LCG.UKI-NORTHGRID-MAN-HEP.uk";\n'	# in GridPP DIRAC
-#jdl += 'Site = "LCG.Manchester.uk";\n'			# in LHCb DIRAC
-#jdl += 'Site = "VAC.UKI-NORTHGRID-MAN-HEP.uk";\n'	# in GridPP DIRAC
-#jdl += 'Site = "VAC.Manchester.uk";\n'			# in LHCb DIRAC
-
-# Allows job to run on local queues (must correspond to tags in DIRAC CS!)
-# jdl += 'Tags = "manchester.members";\n'
+# Allows job to run on MAF share at Manchester
+jdl += 'Tags = "manchester.members";\n'
 
 # The script you want to run. 
 jdl += 'Executable = "tarJob.sh";\n'

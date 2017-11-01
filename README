@@ -22,7 +22,7 @@ This is the basic idea:
    run the command more than once, it uses the existing directories to keep
    track of what job outputs it has already fetched.
    You can safely ignore warnings like "No jobs selected with date ..."
-6. Write a script to merge the outputs of your outputs in all those directories
+6. Write a script to merge the outputs of your jobs in all those directories
    and run the script when they've all finished.
 
 If your output files are big too, you need to use OutputData (see the example
@@ -38,8 +38,9 @@ the tar file. That wc log is then written to JOB_ID.wc.log where JOB_ID
 is the unique DIRAC Job ID.
 
 The six input files were created one by one like this:
- echo "zero" > data.txt ; tar cvf 0.tar data.txt
- dirac-dms-add-file /vo.northgrid.ac.uk/user/a/andrew.mcnab/skatest/0.tar 0.tar UKI-NORTHGRID-MAN-HEP-disk
+
+  echo "zero" > data.txt ; tar cvf 0.tar data.txt
+  dirac-dms-add-file /vo.northgrid.ac.uk/user/a/andrew.mcnab/tartest/0.tar 0.tar UKI-NORTHGRID-MAN-HEP-disk
 
 The JDL options in man-jobs-submit provide the shell script in each job 
 with one of the input tar files from grid storage and save the JOB_ID.wc.log
@@ -53,6 +54,11 @@ Each job output will be created as a subdirectory of the JobGroup directory
 the command multiple times to retrieve the outputs from your jobs as they
 finish. The command avoids downloading the same outputs more than once by
 checking to see if a job's subdirectory already exists.
+
+You can use the Job Monitor in the DIRAC portal website 
+( https://dirac.gridpp.ac.uk/DIRAC/ ) to see how your jobs are progressing
+and reschedule ones which fail (e.g. due totransient problems such as
+overloading of the storage services.)
 
 In the example, each of those subdirectories contains a wc.log output file, 
 so you can merge the output of all your jobs with  
