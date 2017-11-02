@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 #
-# Template for submitting lots of jobs to GridPP DIRAC or LHCb DIRAC
-# Lots of inline comments. Please edit to suit your situation.
+# Template for submitting lots of jobs to GridPP DIRAC as a NorthGrid
+# member. Lots of inline comments. Please edit to suit your situation!
 #
-e# This script uses DIRAC parametric jobs:
+# This script uses DIRAC parametric jobs:
 #  https://github.com/DIRACGrid/DIRAC/wiki/JobManagementAdvanced
 
 import sys
@@ -64,7 +64,6 @@ jdl += 'OutputSandbox = {"StdOut", "StdErr", "%j.wc.log"};\n'
 
 # Give the OutputSE too if using OutputData:
 # jdl += 'OutputSE = "UKI-NORTHGRID-MAN-HEP-disk";\n'	# storage in GridPP DIRAC
-# jdl += 'OutputSE = "CERN-USER";\n'			# storage in LHCb DIRAC
 
 # Tell DIRAC how many seconds your job might run for 
 jdl += 'MaxCPUTime = 1000;\n'
